@@ -18,9 +18,4 @@ done
 
 echo "we are connected YAHOO"
 
-cd /usr/bin
-ls -ltr
-
-./nord_watch
-
 exit 0

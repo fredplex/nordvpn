@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bash
 
-echo "v2.5"
+echo "v2.6"
 
 nordvpn set technology ${TECHNOLOGY:-NordLynx}
 
