@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-echo "...Connection made, now watching and restarting connection if needed"
+echo "...Connection made, now watching and restarting NordVPN if needed"
 
 while true; do
   

@@ -1,6 +1,8 @@
 #!/usr/bin/with-contenv bash
 
-echo "NordVPN Docker Client v2.8"
+echo "--------------------------"
+echo "NordVPN Docker Client v3.0"
+echo "--------------------------"
 
 if ! iptables -L > /dev/null 2>&1; then
   echo "FATAL: iptables is not functional. Ensure your container config adds --cap-add=NET_ADMIN,NET_RAW" 1>&2
