@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+vars:
+  REGISTRY: fredplex
+  IMAGE: nordvpn
+  GIT_HASH: 
+    sh: git log --format="%h" -n 1
+
+tasks:
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+
+  env:
+    desc: |
+            Print all environment variables sorted alphabetically
+    cmds:
+      - env | sort
+    silent: true
+
+  docker-build:
+    desc: |
+            Build the docker image
+    cmds:
+      - docker build . -f  Dockerfile -t "{{.REGISTRY}}/{{.IMAGE}}:{{.GIT_HASH}}"
+
+  docker-push:
+    deps:
+      - docker-build
+    desc: |
+            Push the docker image
+    cmds:
+      - docker push "{{.REGISTRY}}/{{.IMAGE}}:{{.GIT_HASH}}"
+
+  docker-publish:
+    deps:
+      - docker-push
+    desc: |
+            Publish this release as LATEST
+    cmds: 
+      - docker tag "{{.REGISTRY}}/{{.IMAGE}}:{{.GIT_HASH}}" "{{.REGISTRY}}/{{.IMAGE}}:latest"
+      - docker push "{{.REGISTRY}}/{{.IMAGE}}:latest"
