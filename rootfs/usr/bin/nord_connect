@@ -14,8 +14,6 @@ until nordvpn connect ${CONNECT}; do
   current_sleep=$((current_sleep * 2))
 done
 
-#[[ -n ${POST_CONNECT} ]] && eval ${POST_CONNECT}
-
-echo "we are connected YAHOO"
+[[ -n ${POST_CONNECT} ]] && eval ${POST_CONNECT}
 
 exit 0

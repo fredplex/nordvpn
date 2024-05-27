@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 
-echo "made it to watch"
+echo "...Connection made, now watching and restarting connection if needed"
 
 while true; do
-  echo "...sleep"
+  
   sleep "${CHECK_CONNECTION_INTERVAL:-300}"
   echo "let's check connection"
   if [[ ! $(curl -Is -m 30 -o /dev/null -w "%{http_code}" "${CHECK_CONNECTION_URL:-www.google.com}") =~ ^[23] ]]; then
@@ -15,7 +15,7 @@ while true; do
       exit 1
     fi
   fi
-  echo "...check good"
+
 done
 
 exit 0
