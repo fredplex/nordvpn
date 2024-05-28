@@ -7,13 +7,18 @@ vars:
   IMAGE: nordvpn
   GIT_HASH: 
     sh: git log --format="%h" -n 1
+  GIT_TAG:
+    sh: git tag --points-at HEAD
 
 tasks:
   default:
     cmds:
-      - echo "{{.GREETING}}"
+      - echo 'Version {{.GIT_TAG}}'
+      - echo 'GIT Commit {{.GIT_HASH}}'
+    preconditions:
+      - sh: "[ '{{.GIT_TAG}}' != '<no value>' ]"
+        msg: "Variable .GIT_TAG is not set"
     silent: true
-
   env:
     desc: |
             Print all environment variables sorted alphabetically
@@ -41,5 +46,11 @@ tasks:
     desc: |
             Publish this release as LATEST
     cmds: 
+      - echo 'Version {{.GIT_TAG}} with GIT Hash {{.GIT_HASH}} being released'
       - docker tag "{{.REGISTRY}}/{{.IMAGE}}:{{.GIT_HASH}}" "{{.REGISTRY}}/{{.IMAGE}}:latest"
+      - docker tag "{{.REGISTRY}}/{{.IMAGE}}:{{.GIT_HASH}}" "{{.REGISTRY}}/{{.IMAGE}}:{{.GIT_TAG}}"
       - docker push "{{.REGISTRY}}/{{.IMAGE}}:latest"
+      - docker push "{{.REGISTRY}}/{{.IMAGE}}:{{.GIT_TAG}}"
+    preconditions:
+      - sh: "[ '{{.GIT_TAG}}' != '<no value>' ]"
+        msg: "Variable .GIT_TAG is not set"
