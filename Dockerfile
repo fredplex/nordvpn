@@ -27,4 +27,4 @@ ARG IMAGE_VERSION='0.00'
 RUN echo ${IMAGE_VERSION} >> /.version
 
 
-CMD cat /.version && nord_login && nord_config && nord_connect && nord_watch
+CMD version_message && nord_login && nord_config && nord_connect && nord_watch
