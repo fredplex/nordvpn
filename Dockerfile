@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/baseimage-ubuntu:jammy
+FROM ghcr.io/linuxserver/baseimage-ubuntu:noble
 LABEL maintainer="fredplexx@gmail.com"
 
 ARG NORDVPN_VERSION=3.18.1
