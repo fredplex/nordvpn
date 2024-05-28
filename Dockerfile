@@ -21,4 +21,10 @@ RUN apt-get update -y && \
 
 COPY /rootfs /
 ENV S6_CMD_WAIT_FOR_SERVICES=1
-CMD nord_login && nord_config && nord_connect && nord_watch
+
+ARG IMAGE_VERSION=''
+ENV IMAGE_VERSION ${IMAGE_VERSION}
+RUN echo ${IMAGE_VERSION} >> /.version
+
+
+CMD cat /.version && nord_login && nord_config && nord_connect && nord_watch
