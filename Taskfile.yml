@@ -28,7 +28,7 @@ tasks:
 
   docker-build:
     desc: |
-            Build the docker image
+            Build the docker image for testing
     cmds:
       - docker build . -f  Dockerfile -t "{{.REGISTRY}}/{{.IMAGE}}:{{.GIT_HASH}}" --build-arg="IMAGE_VERSION={{.GIT_HASH}}"
 
