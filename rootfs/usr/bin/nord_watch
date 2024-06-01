@@ -5,7 +5,7 @@ echo "...Connection made, now watching and restarting NordVPN if needed"
 while true; do
   
   sleep "${CHECK_CONNECTION_INTERVAL:-300}"
-  echo "let's check connection"
+  
   if [[ ! $(curl -Is -m 30 -o /dev/null -w "%{http_code}" "${CHECK_CONNECTION_URL:-www.google.com}") =~ ^[23] ]]; then
     echo "Unstable connection detected!"
     nordvpn status
