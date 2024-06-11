@@ -1,7 +1,7 @@
 FROM ghcr.io/linuxserver/baseimage-ubuntu:noble
 LABEL maintainer="fredplexx@gmail.com"
 
-ARG NORDVPN_VERSION=3.18.1
+ARG NORDVPN_VERSION=3.18.2
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -y && \
