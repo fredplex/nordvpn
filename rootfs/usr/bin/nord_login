@@ -31,4 +31,7 @@ else
   exit 1
 fi
 
+nordvpn version
+nordvpn status
+
 exit 0
