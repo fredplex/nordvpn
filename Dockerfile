@@ -22,7 +22,7 @@ RUN apt-get update -y && \
 COPY /rootfs /
 ENV S6_CMD_WAIT_FOR_SERVICES=1
 
-ARG IMAGE_VERSION='0.02'
+ARG IMAGE_VERSION='5.09'
 
 RUN echo ${IMAGE_VERSION} >> /.version
 
