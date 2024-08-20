@@ -54,3 +54,5 @@ tasks:
     preconditions:
       - sh: "[ '{{.GIT_TAG}}' != '<no value>' ]"
         msg: "Variable .GIT_TAG is not set"
+
+        
