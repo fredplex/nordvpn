@@ -1,7 +1,7 @@
 FROM ghcr.io/linuxserver/baseimage-ubuntu:noble
 LABEL maintainer="fredplexx@gmail.com"
 
-ARG NORDVPN_VERSION=3.18.3
+ARG NORDVPN_VERSION=3.18.4
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -y && \
@@ -22,7 +22,7 @@ RUN apt-get update -y && \
 COPY /rootfs /
 ENV S6_CMD_WAIT_FOR_SERVICES=1
 
-ARG IMAGE_VERSION='5.0.11'
+ARG IMAGE_VERSION='5.0.12'
 
 RUN echo ${IMAGE_VERSION} >> /.version
 
