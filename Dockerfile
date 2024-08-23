@@ -26,5 +26,4 @@ ARG IMAGE_VERSION='5.0.12'
 
 RUN echo ${IMAGE_VERSION} >> /.version
 
-
 CMD version_message && nord_login && nord_config && nord_connect && nord_watch
