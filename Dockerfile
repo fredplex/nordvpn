@@ -20,6 +20,18 @@ RUN apt-get update -y && \
 		/var/tmp/*
 
 COPY /rootfs /
+
+# Change permissions for the copied files
+RUN chmod 0755 /usr/bin/dockerNetworks && \
+    chmod 0755 /usr/bin/dockerNetworks6 && \
+    chmod 0755 /usr/bin/nord_config && \
+    chmod 0755 /usr/bin/nord_connect && \
+    chmod 0755 /usr/bin/nord_login && \
+    chmod 0755 /usr/bin/nord_watch && \
+    chmod 0755 /usr/bin/version_message && \
+    chmod 0755 /etc/services.d/nordvpn/data/check \
+    chmod 0755 /etc/cont-init.d/* 
+
 ENV S6_CMD_WAIT_FOR_SERVICES=1
 
 ARG IMAGE_VERSION='5.0.12'
