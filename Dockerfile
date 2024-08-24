@@ -41,3 +41,5 @@ ARG IMAGE_VERSION='5.0.12'
 RUN echo ${IMAGE_VERSION} >> /.version
 
 CMD version_message && nord_login && nord_config && nord_connect && nord_watch
+
+# set tags before docker-publish:  git tag -a 5.0.12 -m "Nordvpn 3.18.4, removed fixattrs"; git push --tags
