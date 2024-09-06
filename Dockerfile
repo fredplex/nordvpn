@@ -1,7 +1,7 @@
 FROM ghcr.io/linuxserver/baseimage-ubuntu:noble
 LABEL maintainer="fredplexx@gmail.com"
 
-ARG NORDVPN_VERSION=3.18.4
+ARG NORDVPN_VERSION=3.18.5
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -y && \
@@ -36,7 +36,7 @@ RUN chmod 0755 /usr/bin/dockerNetworks && \
 
 ENV S6_CMD_WAIT_FOR_SERVICES=1
 
-ARG IMAGE_VERSION='5.0.12'
+ARG IMAGE_VERSION='5.0.13'
 
 RUN echo ${IMAGE_VERSION} >> /.version
 
