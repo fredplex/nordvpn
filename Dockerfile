@@ -36,10 +36,10 @@ RUN chmod 0755 /usr/bin/dockerNetworks && \
 
 ENV S6_CMD_WAIT_FOR_SERVICES=1
 
-ARG IMAGE_VERSION='5.0.18'
+ARG IMAGE_VERSION='5.0.19'
 
 RUN echo ${IMAGE_VERSION} >> /.version
 
 CMD version_message && nord_login && nord_config && nord_connect && nord_watch
 
-# set tags before docker-publish only! :  git tag -a 5.0.12 -m "Nordvpn 3.18.4, removed fixattrs"; git push --tags
+# set tags before docker-publish only! :  git tag -a 5.0.19 -m "bump to Nordvpn 3.20.1"; git push --tags
