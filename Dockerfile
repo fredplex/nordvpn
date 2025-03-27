@@ -6,7 +6,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -y && \
     apt-get install -y curl iputils-ping libc6 wireguard net-tools && \
-    curl --insecure https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/n/nordvpn-release/nordvpn-release_1.0.0_all.deb --output /tmp/nordrepo.deb && \
+    curl https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/n/nordvpn-release/nordvpn-release_1.0.0_all.deb --output /tmp/nordrepo.deb && \
     apt-get install -y /tmp/nordrepo.deb && \
     apt-get update -y && \
     apt-get install -y nordvpn${NORDVPN_VERSION:+=$NORDVPN_VERSION} && \
