@@ -54,7 +54,7 @@ services:
 # or anywhere inside of the local network http://192.168.1.xxx:8080
  ```
 
-## docker-compose example using reverse proxy
+## docker-compose example using reverse proxy ...
 ```
 version: "3"
 services:
