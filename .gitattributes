@@ -1,2 +1,2 @@
 text eol=lf
-/rootfs/* eol=lf
+/rootfs/usr/bin/* text eol=lf
