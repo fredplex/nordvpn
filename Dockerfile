@@ -1,10 +1,14 @@
 FROM ghcr.io/linuxserver/baseimage-ubuntu:noble
 LABEL maintainer="fredplexx@gmail.com"
 
-ARG NORDVPN_VERSION=4.0.0
+# set tags before docker-publish only! :  git tag -a 5.1.1 -m "bump to Nordvpn 4.1.1"; git push --tags
+ARG NORDVPN_VERSION=4.1.1
+ARG IMAGE_VERSION='5.1.1'
+
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -y && \
+    apt-get upgrade -y && \
     apt-get install -y curl iputils-ping libc6 wireguard net-tools && \
     curl https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/n/nordvpn-release/nordvpn-release_1.0.0_all.deb --output /tmp/nordrepo.deb && \
     apt-get install -y /tmp/nordrepo.deb && \
@@ -36,10 +40,9 @@ RUN chmod 0755 /usr/bin/dockerNetworks && \
 
 ENV S6_CMD_WAIT_FOR_SERVICES=1
 
-ARG IMAGE_VERSION='5.1.0'
+
 
 RUN echo ${IMAGE_VERSION} >> /.version
 
 CMD version_message && nord_login && nord_config && nord_connect && nord_watch
 
-# set tags before docker-publish only! :  git tag -a 5.0.20 -m "bump to Nordvpn 3.20.2"; git push --tags
