@@ -1,9 +1,10 @@
 FROM ghcr.io/linuxserver/baseimage-ubuntu:noble
 LABEL maintainer="fredplexx@gmail.com"
 
-# set tags before docker-publish only! :  git tag -a 5.1.1 -m "bump to Nordvpn 4.1.1"; git push --tags
-ARG NORDVPN_VERSION=4.1.1
-ARG IMAGE_VERSION='5.1.1'
+# set tags before docker-publish only! :  git tag -a 5.2.0 -m "bump to Nordvpn 4.1.1"; git push --tags
+
+ARG NORDVPN_VERSION=4.2.0
+ARG IMAGE_VERSION='5.2.0'
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -45,4 +46,3 @@ ENV S6_CMD_WAIT_FOR_SERVICES=1
 RUN echo ${IMAGE_VERSION} >> /.version
 
 CMD version_message && nord_login && nord_config && nord_connect && nord_watch
-
