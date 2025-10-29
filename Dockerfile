@@ -3,8 +3,8 @@ LABEL maintainer="fredplexx@gmail.com"
 
 # set tags before docker-publish only! :  git tag -a 5.2.0 -m "bump to Nordvpn 4.1.1"; git push --tags
 
-ARG NORDVPN_VERSION=4.2.0
-ARG IMAGE_VERSION='5.2.0'
+ARG NORDVPN_VERSION=4.2.1
+ARG IMAGE_VERSION='5.2.1'
 
 ARG DEBIAN_FRONTEND=noninteractive
 
