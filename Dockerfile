@@ -1,10 +1,10 @@
 FROM ghcr.io/linuxserver/baseimage-ubuntu:noble
 LABEL maintainer="fredplexx@gmail.com"
 
-# set tags before docker-publish only! :  git tag -a 5.2.1 -m "bump to Nordvpn 4.1.2"; git push --tags
+# set tags before docker-publish only! :  git tag -a 5.2.1.1 -m "bump to Nordvpn 4.1.2"; git push --tags
 
 ARG NORDVPN_VERSION=4.2.1
-ARG IMAGE_VERSION='5.2.1'
+ARG IMAGE_VERSION='5.2.1.1'
 
 ARG DEBIAN_FRONTEND=noninteractive
 
